@@ -10,6 +10,7 @@ import com.devtiro.blog.domain.PostStatus;
 import com.devtiro.blog.domain.entities.Category;
 import com.devtiro.blog.domain.entities.Post;
 import com.devtiro.blog.domain.entities.Tag;
+import com.devtiro.blog.domain.entities.User;
 
 @Repository
 public interface PostRepository extends JpaRepository<Post, UUID>{
@@ -17,4 +18,5 @@ public interface PostRepository extends JpaRepository<Post, UUID>{
     List<Post> findAllByStatusAndCategoryContaining(PostStatus status, Category category);
     List<Post> findAllByStatusAndTagsContaining(PostStatus status, Tag tag);
     List<Post> findAllByStatus(PostStatus status);
+    List<Post> findAllByAuthorAndStatus(User author, PostStatus status);
 }
